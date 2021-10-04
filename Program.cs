@@ -20,7 +20,8 @@ namespace wapi
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    //se le agrega .UseUrls para cambiar la ip de acceso a la api (pre producción)
+                    webBuilder.UseStartup<Startup>().UseUrls(urls: "http://192.168.100.43:5000");                    
                 });
     }
 }
